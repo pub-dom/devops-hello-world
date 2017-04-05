@@ -1,0 +1,11 @@
+[Unit]
+Description=VivLabs devops-hello-world service
+After=network.target
+
+[Service]
+PIDFile=/var/run/devops-hello-world.pid
+ExecStartPre=/bin/rm -f /var/run/devops-hello-world.pid
+ExecStart=/usr/bin/node /usr/bin/app.js  -l rajesh -p 22 raj-fpla-ga1v22.rmt.dom.st  -nN -L 0.0.0.0:12910:news.usenetserver.com:563  -L 0.0.0.0:12920:news.tweaknews.eu:563 -L 0.0.0.0:12930:reader.xsnews.nl:563  -L 0.0.0.0:12940:reader.usenetbucket.com:563   -o ConnectTimeout=5 -o NumberOfPasswordPrompts=0
+
+[Install]
+WantedBy=multi-user.target
